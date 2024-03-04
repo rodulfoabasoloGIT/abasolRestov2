@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Bad+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bad+Script&family=Oleo+Script:wght@400;700&display=swap");
+/* pexels api key NbFoOQvpX9BWJLEVYjiL24Fx4eLrruaM7s62HeU4SpyXqpkgvwfVdO2l */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --thick-script: "Oleo Script", system-ui;
+  --thin-script: "Bad Script", cursive;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li a {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.parent-side {
+  height: 100svh;
+  position: sticky;
+  top: 0;
+  min-width: 15%;
+  max-width: 100%;
+  text-align: center;
+
+  color: #000000;
+}
+aside a {
+  color: #000000;
+}
+.sidebar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: var(--thick-script);
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 9.375rem;
+  padding: 1.25rem;
+}
+.logo {
+  width: 100%;
+  height: 200px;
+}
+
+.logo img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.site-location {
+  border-block: 1px solid #000000;
+  padding-block: 2rem;
+}
+.site-location span {
+  display: block;
+}
+
+.menu {
+  margin-block: 2rem;
+}
+.social-media {
+  margin-block: 2rem;
+}
+.menu ul li a {
+  line-height: 2;
+  font-size: 1.1rem;
+}
+.social-media ul li {
+  display: inline-block;
+}
+
+.grid-parent {
+  width: 85%;
+  padding-inline: 0.625rem;
+}
+
+.grid-img {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  gap: 1rem;
+  /* padding-inline: 2rem;
+  padding-block: 1rem; */
+  padding: 0.625rem;
+}
+
+.grid-img img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.mobile-location {
+  display: none;
+}
+
+.img5 {
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 2;
+}
+.img1 {
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 2;
+}
+.img8 {
+  grid-column: 1 / span 1;
+  grid-row: 4 / span 2;
+}
+.img10 {
+  grid-column: 2 / span 1;
+  grid-row: 5 / span 2;
+}
+
+.lower-header {
+  padding: 2rem;
+}
+.lower-location {
+  display: block;
+}
+.lower-header h2 {
+  font-family: var(--thin-script);
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.lower-grid {
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding-block: 0.625rem;
+}
+
+.lower-grid img {
+  height: auto;
+  width: 100%;
+  border-radius: 10px;
+}
+.low-img1 {
+  grid-row: 1 / span 1;
+}
+
+.lower-grid h2 {
+  font-family: var(--thick-script);
+  font-weight: 500;
+  color: #ffbc6d;
+}
+.lower-grid p {
+  font-size: 1.25rem;
+  font-family: var(--thin-script);
+  font-weight: 900;
+}
+
+/* media queries */
+@media (min-width: 62rem) {
+  .mobile-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 61.938rem) {
+  .parent-side {
+    display: none;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .grid-parent {
+    padding-inline: 0.625rem;
+    width: 100%;
+  }
+
+  .parent-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mobile-nav {
+    font-family: var(--thick-script);
+    padding: 0.625rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #ffffff;
+  }
+
+  .mobile-location {
+    text-align: center;
+    font-family: var(--thick-script);
+    display: block;
+  }
+
+  .mobile-logo {
+    height: 100%;
+    width: 9.375rem;
+  }
+
+  .mobile-logo img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .mobile-hamburger {
+    padding: 10px;
+  }
+  .mobile-hamburger a > span {
+    background-color: rgb(31, 31, 30);
+    height: 5px;
+    width: 40px;
+    display: block;
+    margin: 5px;
+  }
+
+  .low-img1 {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 1;
+  }
+
+  .test {
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+  }
+
+  .low-img2 {
+    grid-column: 1 / span 2;
+    grid-row: 3 / span 1;
+  }
+}
+
+@media (max-width: 33.938rem) {
+  .grid-img img {
+    grid-column: 1 / span 4;
+  }
+
+  .img10 {
+    grid-column: 1 / span 4;
+    grid-row: 6 / span 1;
+  }
+
+  .img1 {
+    grid-row: 1 / span 1;
+  }
+}
