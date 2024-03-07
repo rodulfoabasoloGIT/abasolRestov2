@@ -32,13 +32,12 @@ ul li a {
 }
 
 .parent-side {
-  height: 100svh;
+  max-height: 100svh;
   position: sticky;
   top: 0;
   min-width: 15%;
   max-width: 100%;
   text-align: center;
-
   color: #000000;
 }
 aside a {
@@ -52,8 +51,9 @@ aside a {
   font-family: var(--thick-script);
   font-weight: 400;
   font-style: normal;
-  margin-bottom: 9.375rem;
+  /* margin-bottom: 9.375rem; */
   padding: 1.25rem;
+  height: auto;
 }
 .logo {
   width: 100%;
@@ -153,7 +153,7 @@ aside a {
 }
 
 .lower-grid img {
-  height: auto;
+  height: 100%;
   width: 100%;
   border-radius: 10px;
 }
@@ -165,6 +165,12 @@ aside a {
   font-family: var(--thick-script);
   font-weight: 500;
   color: #ffbc6d;
+}
+
+.test,
+.test2 {
+  padding-block: 2.5rem;
+  margin-inline: 1rem;
 }
 .lower-grid p {
   font-size: 1.25rem;
