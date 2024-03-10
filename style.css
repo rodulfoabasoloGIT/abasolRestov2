@@ -262,6 +262,12 @@ aside a {
   }
 }
 
+@media (max-height: 49.063rem) {
+  .parent-side {
+    overflow-x: scroll;
+  }
+}
+
 @media (max-width: 33.938rem) {
   .grid-img img {
     grid-column: 1 / span 4;

@@ -11,10 +11,56 @@ body {
 
 .menu-content {
   width: 85%;
-  height: 200svh;
+  position: relative;
+  overflow: hidden;
 }
 
-.menu-banner img {
+.menu-banner {
+  height: 100svh;
   width: 100%;
+  position: relative;
+  padding: 1rem;
+}
+
+.ban-small-logo {
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  font-family: var(--thick-script);
+  font-size: 2rem;
+  color: #ffbc6d;
+}
+
+.ban-small-logo h1 {
+  margin: 0;
+}
+
+.menu-banner-cont {
+  border-radius: 0.625rem;
   height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+      rgba(255, 248, 248, 0.45),
+      rgba(255, 188, 109, 0.45)
+    ),
+    url("https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* menu media query */
+@media (max-width: 61.938rem) {
+  .menu-content {
+    width: 100%;
+  }
+
+  .menu-banner {
+    height: 20rem;
+  }
 }
