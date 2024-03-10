@@ -59,7 +59,10 @@ body {
   .menu-content {
     width: 100%;
   }
-
+  .ban-small-logo img {
+    height: 150px;
+    width: 150px;
+  }
   .menu-banner {
     height: 20rem;
   }
