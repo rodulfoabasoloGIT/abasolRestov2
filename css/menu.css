@@ -60,3 +60,17 @@
   left: 0;
   z-index: 2;
 }
+
+@media (max-width: 61.938rem) {
+  .menu-selection {
+    overflow-x: scroll;
+  }
+
+  .arrow-left {
+    display: none;
+  }
+
+  .arrow-right {
+    display: none;
+  }
+}
