@@ -21,6 +21,7 @@
   width: 200px;
   height: 100%;
   text-align: center;
+  cursor: pointer;
 }
 
 .img-contain img {
@@ -48,8 +49,13 @@
   position: absolute;
   top: 30%;
   transform: translateY(-30%);
-  background: yellow;
+  /* background: yellow; */
   margin: 0.625rem;
+  background: #ffff;
+  height: 3.125rem;
+  width: 3.125rem;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .arrow-right {
@@ -61,6 +67,10 @@
   z-index: 2;
 }
 
+.left-btn,
+.right-btn {
+  font-size: 3.125rem;
+}
 /* @media (max-width: 61.938rem) {
   .menu-selection {
     overflow-x: scroll;
