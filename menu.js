@@ -34,7 +34,8 @@ test.forEach((e) => {
         `https://www.themealdb.com/api/json/v1/1/filter.php?c=${variable}`
       );
       const movies = await response.json();
-      console.log(movies);
+      const renderedData = movies.meals.slice(0, 10);
+      console.log(renderedData);
     }
     logMovies();
 
