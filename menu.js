@@ -55,14 +55,15 @@ categoriesMenu.forEach((e) => {
         );
         const data = await response.json();
         const renderedData = data.meals.slice(0, 10);
-
         const categoryResult = document.querySelector(".result");
 
         categoryResult.textContent = val;
+        const mainDiv = document.querySelector(".categories");
+        mainDiv.innerHTML = "";
+
         for (let i = 0; i < renderedData.length; i++) {
           const element = renderedData[i];
 
-          const mainDiv = document.querySelector(".categories");
           const secDiv = document.createElement("div");
           secDiv.classList.add("categ-choices");
           const header = document.createElement("h5");
