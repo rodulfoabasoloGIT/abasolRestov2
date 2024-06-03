@@ -10,40 +10,8 @@ rightBtn.addEventListener("click", () => {
 leftBtn.addEventListener("click", () => {
   document.querySelector(".menu-selection").scrollLeft -= 500;
 });
-//buttons
-
-// document.querySelector(".beef").addEventListener("click", async function (e) {
-//   const variable = e.currentTarget.classList[1];
-//   async function logMovies() {
-//     const response = await fetch(
-//       `https://www.themealdb.com/api/json/v1/1/filter.php?c=${variable}`
-//     );
-//     const movies = await response.json();
-//     console.log(movies);
-//   }
-//   logMovies();
-// });
 
 const categoriesMenu = document.querySelectorAll(".img-contain");
-
-// categoriesMenu.forEach((e) => {
-//   e.addEventListener("click", (e) => {
-//     const variable = e.currentTarget.classList[1];
-//     async function logMovies() {
-//       const response = await fetch(
-//         `https://www.themealdb.com/api/json/v1/1/filter.php?c=${variable}`
-//       );
-//       const movies = await response.json();
-//       const renderedData = movies.meals.slice(0, 10);
-
-//       const categChoices = document.createElement("div");
-//       categChoices.classList.add("categ-choise");
-
-//       categChoices.appendChild(renderedData[0].strMeal);
-//     }
-//     logMovies();
-//   });
-// });
 
 categoriesMenu.forEach((e) => {
   e.addEventListener("click", (e) => {
@@ -54,31 +22,53 @@ categoriesMenu.forEach((e) => {
           `https://www.themealdb.com/api/json/v1/1/filter.php?c=${val}`
         );
         const data = await response.json();
-        const renderedData = data.meals.slice(0, 10);
-        const categoryResult = document.querySelector(".result");
+        const filteredData = data.meals;
+        const categDiv = document.querySelector(".categories");
+        const categName = document.querySelector(".result");
+        categName.textContent = val;
 
-        categoryResult.textContent = val;
-        const mainDiv = document.querySelector(".categories");
-        mainDiv.innerHTML = "";
-
-        for (let i = 0; i < renderedData.length; i++) {
-          const element = renderedData[i];
-
-          const secDiv = document.createElement("div");
-          secDiv.classList.add("categ-choices");
-          const header = document.createElement("h5");
-          header.textContent = element.strMeal;
-          const img = document.createElement("img");
-          img.src = element.strMealThumb;
-
-          secDiv.appendChild(img);
-          secDiv.appendChild(header);
-          mainDiv.appendChild(secDiv);
+        let i = 1;
+        if (!categDiv || !categName) {
+          console.error("Categories or result element not found");
+          return;
         }
+
+        const stars = generateStars(5);
+
+        categDiv.innerHTML = filteredData
+          .map((item) => {
+            const { strMeal, strMealThumb } = item;
+            return `
+          <div class="categ-choices">
+          <img
+            src=${strMealThumb}
+          />
+            ${stars}
+          <h5>${strMeal}</h5>
+          <button class="addToCart">Add to cart!</button>
+        </div>
+          `;
+          })
+          .join("");
+
+        document.querySelectorAll(".addToCart").forEach((button) => {
+          button.addEventListener("click", () => {
+            // document.querySelector(".count").textContent = i++;
+            const orderedCart = document.querySelector(".order-quantity");
+            orderedCart.setAttribute("data-before", i++);
+          });
+        });
       } catch (error) {
-        console.error("erro fetching data", error);
+        console.error("error fetching data", error);
       }
     }
+
     fetchData();
+
+    function generateStars(count) {
+      return new Array(count)
+        .fill('<i class="fa-solid fa-star" style="color: #ffd43b"></i>')
+        .join("");
+    }
   });
 });
