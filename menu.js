@@ -13,6 +13,8 @@ leftBtn.addEventListener("click", () => {
 
 const categoriesMenu = document.querySelectorAll(".img-contain");
 
+let i = 1;
+
 categoriesMenu.forEach((e) => {
   e.addEventListener("click", (e) => {
     const val = e.currentTarget.classList[1];
@@ -22,12 +24,11 @@ categoriesMenu.forEach((e) => {
           `https://www.themealdb.com/api/json/v1/1/filter.php?c=${val}`
         );
         const data = await response.json();
-        const filteredData = data.meals;
+        const filteredData = data.meals.slice(0, 5);
         const categDiv = document.querySelector(".categories");
         const categName = document.querySelector(".result");
         categName.textContent = val;
 
-        let i = 1;
         if (!categDiv || !categName) {
           console.error("Categories or result element not found");
           return;
@@ -53,9 +54,10 @@ categoriesMenu.forEach((e) => {
 
         document.querySelectorAll(".addToCart").forEach((button) => {
           button.addEventListener("click", () => {
-            // document.querySelector(".count").textContent = i++;
-            const orderedCart = document.querySelector(".order-quantity");
-            orderedCart.setAttribute("data-before", i++);
+            const count = i++;
+            localStorage.setItem("testValue", count);
+            const localValue = localStorage.getItem("testValue");
+            testFunction(localValue);
           });
         });
       } catch (error) {
@@ -64,7 +66,6 @@ categoriesMenu.forEach((e) => {
     }
 
     fetchData();
-
     function generateStars(count) {
       return new Array(count)
         .fill('<i class="fa-solid fa-star" style="color: #ffd43b"></i>')
@@ -72,3 +73,8 @@ categoriesMenu.forEach((e) => {
     }
   });
 });
+
+const testFunction = (value) => {
+  const orderedCart = document.querySelector(".order-quantity");
+  orderedCart.setAttribute("data-before", value);
+};
